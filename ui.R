@@ -1,11 +1,8 @@
 library(shiny)
 
 shinyUI(fluidPage(
-
-    titlePanel("Here is a title"),
-
-    helpText("here is some information"),
-
+    titlePanel("Photosynthesis App"),
+    helpText("here is some information to help you"),
     sidebarLayout(
         sidebarPanel(
             radioButtons("trait",

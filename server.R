@@ -1,5 +1,6 @@
 library(shiny)
 library(ggplot2)
+library(plantecophys)
 
 shinyServer(function(input, output){
     output$boxPlot <- renderPlot({
