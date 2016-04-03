@@ -7,12 +7,9 @@ shinyUI(fluidPage(
         sidebarPanel(
             radioButtons("trait",
                 "Choose something to display",
-                c("Sepal.Length",
-                    "Sepal.Width",
-                    "Petal.Length",
-                    "Petal.Width")
+                c("Photosynthesis")
                 )),
 
-        mainPanel(plotOutput("boxPlot"))
+        mainPanel(plotOutput("Ci"))
         )
     ))

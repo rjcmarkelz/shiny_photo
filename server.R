@@ -2,15 +2,17 @@ library(shiny)
 library(ggplot2)
 library(plantecophys)
 
-shinyServer(function(input, output){
-    output$boxPlot <- renderPlot({
+r <- Aci(seq(60,2000,length=101), Ca=400)
 
-        pl <- ggplot(data = iris, 
-                    aes_string(x = "Species",
-                               y = input$trait,
-                               fill = "Species")
+shinyServer(function(input, output){
+    output$Ci <- renderPlot({
+
+        # with(r, plot(VPD, ALEAF, type='l'))
+        # pl <- qplot(data=r, x = Ci, y = ALEAF)
+        pl <- ggplot(data = r, aes(x = Ci, y = ALEAF)
         )
 
-        pl + geom_boxplot()
-    })
+        pl + geom_line()
+    })   
 })
+
