@@ -2,17 +2,18 @@ library(shiny)
 library(ggplot2)
 library(plantecophys)
 
-r <- Aci(seq(60,2000,length=101), Ca=400)
+# r <- Aci(seq(60,2000,length=101), Ca=400)
 
 shinyServer(function(input, output){
-    output$Ci <- renderPlot({
+    
+    photo_out <- reactive({
+        Aci(Ci = seq(10,2000,length=101), PPFD = input$PPFD) 
+    })
 
-        # with(r, plot(VPD, ALEAF, type='l'))
-        # pl <- qplot(data=r, x = Ci, y = ALEAF)
-        pl <- ggplot(data = r, aes(x = Ci, y = ALEAF)
-        )
+    output$ACi_curve <- renderPlot({
+        pl2 <- ggplot(data = photo_out(), aes(x = Ci, y = ALEAF))
+        pl2 + geom_line()
+    })  
 
-        pl + geom_line()
-    })   
 })
 
