@@ -1,15 +1,15 @@
 library(shiny)
 
 shinyUI(fluidPage(
-    titlePanel("Photosynthesis Teaching App"),
-    helpText("Play With the Input Values"),
+    titlePanel("Photosynthesis Learning App"),
+    helpText("Play With the Input Values Below"),
     
     sidebarLayout(
         sidebarPanel(
 
-            radioButtons("trait",
-                "Choose something to display",
-                c("Photosynthesis","other")),
+            # radioButtons("Parameters",
+            #     "Choose something to display",
+            #     c("Photosynthesis")),
 
             # numericInput("VPD",
             #     label = "Vapor Pressure Deficit:",
@@ -22,6 +22,10 @@ shinyUI(fluidPage(
             numericInput("Vcmax",
                 label = "Vcmax:",
                 min = 0, max = 150, value = 50),
+
+            numericInput("Jmax",
+                label = "Jmax:",
+                min = 0, max = 120, value = 100),
 
             numericInput("Tleaf",
                 label = "Temperature Leaf:",
