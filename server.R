@@ -11,12 +11,19 @@ shinyServer(function(input, output){
     
     photo_out <- reactive({
         
-        Aci(Ci = seq(10,1200,length=100),
+        Aci(Ci = seq(0, 1200, length=100),
             # VPD = input$VPD,
             PPFD = input$PPFD,
             Vcmax = input$Vcmax,
             Jmax = input$Jmax,
-            Tleaf = input$Tleaf)
+            Tleaf = input$Tleaf, 
+            RH = input$RH,
+            g0 = input$g0,
+            g1 = input$g1, 
+            alpha = input$alpha, 
+            theta = input$theta,
+            # gmeso = input$gmeso,
+            Q10 = input$Q10)
     })
 
     output$ACi_curve <- renderPlot({
