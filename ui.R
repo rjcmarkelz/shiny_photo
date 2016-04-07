@@ -21,26 +21,25 @@ shinyUI(fluidPage(
 
             sliderInput("Tleaf",
                 label = "Temperature Leaf (degrees C)",
-                min = 0, max = 100, value = 25),
+                min = 0, max = 50, value = 25),
 
-            sliderInput("RH",
+            sliderInput("RH (%)",
                 label = "Relative Humidity",
                 min = 0, max = 100, value = 25),
 
             sliderInput("g0",
-                label = "g0 - Ball-Berry Model",
+                label = "g0 - Ball-Berry model intercept",
                 min = 0, max = 10, value = 2),
 
             sliderInput("g1",
-                label = "g1- Ball-Berry Model",
+                label = "g1- Ball-Berry model slope",
                 min = 0, max = 10, value = 2),
             
             sliderInput("alpha",
                 label = "alpha - Quantum yield of electron transport (mol mol-1)",
                 min = 0, max = 1, value = 0.24),
 
-            sliderInput("theta",
-                label = "theta- shape of light response curve",
+            sliderInput("theta", "Shape of light response curve",
                 min = 0, max = 1, value = 0.85),
 
             sliderInput("Q10",
