@@ -1,56 +1,47 @@
 library(shiny)
 
 shinyUI(fluidPage(
-    titlePanel("Photosynthetic Assimilation Curves"),
-    helpText("Model input parameters below."),
+
+    titlePanel("PBI200C Photosynthetic Assimilation Curves"),
+
+    # textOutput("text1"),
+    plotOutput("ACi_curve"),
     
-    sidebarLayout(
-        sidebarPanel(
+    hr(),
+    # sidebarLayout(
+    #     sidebarPanel(
 
+    fluidRow(
+
+        column(3,
             sliderInput("PPFD",
-                label = "PAR: Photosynthetically Active Radiation",
-                min = 0, max = 2000, value = 1000),
+                label = "PAR: Photosynthetically Active Radiation", min = 0,
+                max = 2000, value = 1000),
 
+            sliderInput("Tleaf",
+                label = "Temperature Leaf (degrees C)",
+                min = 0, max = 50, value = 25)
+            ),
+
+        column(4,
             sliderInput("Vcmax",
                 label = "Vcmax",
                 min = 0, max = 150, value = 50),
 
             sliderInput("Jmax",
                 label = "Jmax",
-                min = 0, max = 120, value = 100),
+                min = 0, max = 150, value = 100)
+            ),
 
-            sliderInput("Tleaf",
-                label = "Temperature Leaf (degrees C)",
-                min = 0, max = 50, value = 25),
-
-            sliderInput("RH (%)",
-                label = "Relative Humidity",
-                min = 0, max = 100, value = 25),
-
-            sliderInput("g0",
-                label = "g0 - Ball-Berry model intercept",
-                min = 0, max = 10, value = 2),
-
-            sliderInput("g1",
-                label = "g1- Ball-Berry model slope",
-                min = 0, max = 10, value = 2),
-            
+        column(5,
             sliderInput("alpha",
                 label = "alpha - Quantum yield of electron transport (mol mol-1)",
                 min = 0, max = 1, value = 0.24),
 
-            sliderInput("theta", "Shape of light response curve",
-                min = 0, max = 1, value = 0.85),
-
             sliderInput("Q10",
                 label = "Q10- Respiration response to temperature",
                 min = 0, max = 3, value = 1.92)
-
-        ),
-
-        mainPanel(
-            # textOutput("text1"),
-            plotOutput("ACi_curve")
         )
     )
+
 ))
